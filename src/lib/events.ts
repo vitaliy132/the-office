@@ -7,6 +7,8 @@ export type EventItem = {
   venue: string;
   city: string;
   blurb: string;
+  image?: string;
+  announce?: boolean;
 };
 
 export const featuredEvent: EventItem = {
@@ -23,24 +25,48 @@ export const featuredEvent: EventItem = {
 
 export const upcomingEvents: EventItem[] = [
   {
-    id: "1",
-    title: "Signal Room",
-    date: "Fri · 24 Oct 2026",
-    day: "24",
-    month: "OCT",
-    venue: "The Basement",
-    city: "Your City",
-    blurb: "Club night placeholder — add artists and ticket link.",
+    id: "announce",
+    title: "To be announced...",
+    date: "Soon",
+    day: "—",
+    month: "TBA",
+    venue: "The Office",
+    city: "Leeds",
+    blurb: "Details coming soon...",
+    announce: true,
   },
   {
-    id: "2",
-    title: "Afterlight",
-    date: "Sat · 01 Nov 2026",
-    day: "01",
+    id: "house-party-2",
+    title: "House Party 2.0",
+    date: "07/02/2026",
+    day: "07",
+    month: "FEB",
+    venue: "Hyde Park",
+    city: "Leeds",
+    blurb: "House party at a secret location. 10pm till late.",
+    image: "/events/house-party-2.png",
+  },
+  {
+    id: "file-001",
+    title: "The Office House party",
+    date: "15/11/2025",
+    day: "15",
     month: "NOV",
-    venue: "Rooftop East",
-    city: "Your City",
-    blurb: "Open-air / late set placeholder.",
+    venue: "Hyde Park",
+    city: "Leeds",
+    blurb: "House party at a secret location.",
+    image: "/events/instagram-3.png",
+  },
+  {
+    id: "file-001-250925",
+    title: "File #001",
+    date: "25/09/25",
+    day: "25",
+    month: "SEP",
+    venue: "Freedom Mills",
+    city: "Leeds",
+    blurb: "DnB all night.",
+    image: "/events/poster-without-qr.png",
   },
   {
     id: "3",
@@ -51,6 +77,16 @@ export const upcomingEvents: EventItem[] = [
     venue: "Studio Hall",
     city: "Your City",
     blurb: "Live showcase placeholder.",
+  },
+  {
+    id: "2",
+    title: "Afterlight",
+    date: "Sat · 01 Nov 2026",
+    day: "01",
+    month: "NOV",
+    venue: "Rooftop East",
+    city: "Your City",
+    blurb: "Open-air / late set placeholder.",
   },
   {
     id: "4",
@@ -84,9 +120,34 @@ export const upcomingEvents: EventItem[] = [
   },
 ];
 
-export const homeArtists = [
-  { id: 1, name: "Artist One", role: "DJ / Producer" },
-  { id: 2, name: "Artist Two", role: "Live Act" },
-  { id: 3, name: "Artist Three", role: "DJ" },
-  { id: 4, name: "Artist Four", role: "Selector" },
+export const homeArtists: {
+  id: number;
+  image: string;
+  name?: string;
+  role?: string;
+}[] = [
+  {
+    id: 2,
+    image: "/guests/guest-2.jpg",
+    name: "Licia",
+    role: "DJ/Producer",
+  },
+  {
+    id: 1,
+    image: "/guests/guest-1.jpg",
+    name: "Anaïs",
+    role: "DJ/Producer",
+  },
+  {
+    id: 3,
+    image: "/guests/guest-3.jpg",
+    name: "Mylania",
+    role: "DJ/Producer",
+  },
+  {
+    id: 4,
+    image: "/guests/guest-4.jpg",
+    name: "GreenHouse",
+    role: "DJ/Producer",
+  },
 ];

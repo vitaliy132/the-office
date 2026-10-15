@@ -20,9 +20,12 @@ export default function ContactPage() {
                 <p className="font-sans text-[11px] tracking-[0.28em] text-white/40 uppercase">
                   Email
                 </p>
-                <p className="mt-2 font-display text-2xl text-white">
-                  hello@theoffice.example
-                </p>
+                <a
+                  href="mailto:info@theofficesoundz.com"
+                  className="mt-2 block font-display text-2xl text-white transition-colors hover:text-white/80"
+                >
+                  info@theofficesoundz.com
+                </a>
               </div>
               <div>
                 <p className="font-sans text-[11px] tracking-[0.28em] text-white/40 uppercase">
@@ -37,7 +40,15 @@ export default function ContactPage() {
                   Social
                 </p>
                 <p className="mt-2 font-sans text-sm text-white/50">
-                  Instagram · X · YouTube
+                  <a
+                    href="https://www.instagram.com/theofficesoundz/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition-colors hover:text-white"
+                  >
+                    Instagram
+                  </a>
+                  {" · X · YouTube"}
                 </p>
               </div>
             </div>

@@ -62,21 +62,23 @@ export function HomeHero() {
         <h1 className="sr-only">The Office — Event Organizer</h1>
 
         <div className="hero-copy glass-panel max-w-3xl p-6 opacity-0 md:p-8">
-          <p className="font-sans text-[11px] tracking-[0.35em] text-white/40 uppercase">
-            Event organizers
+          <p className="max-w-2xl font-display text-3xl leading-tight tracking-[-0.02em] text-white/95 md:text-4xl">
+            Born in Leeds, we build nights that bring people together. Clock
+            into your next rave.
           </p>
-          <p className="mt-4 max-w-xl font-display text-3xl leading-tight tracking-[-0.02em] text-white/95 md:text-4xl">
-            We build nights people remember — artists, venues, tickets.
-          </p>
-          <p className="mt-4 max-w-md font-sans text-sm leading-relaxed text-white/55">
-            {/* Replace with your tagline */}
-            Curating lineups and rooms across the calendar. Replace this copy
-            with your city and sound.
+          <p className="mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
+            Curating forward-thinking lineups, supporting local creatives and
+            artists, we remain dedicated to championing the true heartbeat of
+            the underground. Join our community and lose yourself at The
+            Office.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <InkButton href="/events">Upcoming Events</InkButton>
-            <InkButton href="/tickets" variant="outline">
-              Get Tickets
+            <InkButton
+              href="https://chat.whatsapp.com/J10JggUuroq3DJrfS6hxgT?mode=gi_t"
+              variant="outline"
+            >
+              Join Our Community
             </InkButton>
           </div>
         </div>

@@ -1,10 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
 import { EventCard } from "@/components/EventCard";
 import { HomeHero } from "@/components/HomeHero";
 import { InkButton } from "@/components/InkButton";
 import { Reveal } from "@/components/Reveal";
 import {
-  featuredEvent,
   homeArtists,
   upcomingEvents,
 } from "@/lib/events";
@@ -30,36 +30,25 @@ export default function HomePage() {
 
           <Reveal delay={0.08} className="mt-12">
             <div className="glass-panel grid gap-0 overflow-hidden lg:grid-cols-12">
-              <div className="placeholder-media aspect-[16/10] lg:col-span-7 lg:aspect-auto lg:min-h-[420px]" />
+              <div className="flex aspect-[16/10] items-center justify-center lg:col-span-7 lg:aspect-auto lg:min-h-[420px]">
+                <p className="font-display text-6xl leading-none tracking-[-0.03em] text-white/80 md:text-7xl">
+                  TBA
+                </p>
+              </div>
               <div className="flex flex-col justify-between p-6 md:p-10 lg:col-span-5">
                 <div>
-                  <div className="flex items-center gap-4">
-                    <div className="flex min-w-16 flex-col items-center border border-white/15 bg-white/[0.04] px-3 py-3">
-                      <span className="font-sans text-[10px] tracking-[0.2em] text-white/45 uppercase">
-                        {featuredEvent.month}
-                      </span>
-                      <span className="mt-1 font-display text-3xl leading-none text-white">
-                        {featuredEvent.day}
-                      </span>
-                    </div>
-                    <div>
-                      <p className="font-sans text-[11px] tracking-[0.22em] text-white/40 uppercase">
-                        {featuredEvent.date}
-                      </p>
-                      <p className="mt-1 font-sans text-sm text-white/50">
-                        {featuredEvent.venue} · {featuredEvent.city}
-                      </p>
-                    </div>
-                  </div>
-                  <h3 className="mt-8 font-display text-4xl tracking-[-0.02em] text-white md:text-5xl">
-                    {featuredEvent.title}
+                  <h3 className="font-display text-4xl tracking-[-0.02em] text-white md:text-5xl">
+                    TBA
                   </h3>
                   <p className="mt-4 max-w-sm font-sans text-sm leading-relaxed text-white/50">
-                    {featuredEvent.blurb}
+                    We&apos;re currently building something very exciting. Keep an
+                    eye out for this one...
                   </p>
                 </div>
-                <div className="mt-10 flex flex-wrap gap-3">
-                  <InkButton href="/tickets">Get Tickets</InkButton>
+                <div className="mt-10 flex flex-wrap items-center justify-between gap-4">
+                  <span className="font-sans text-[11px] tracking-[0.18em] text-white/35 uppercase">
+                    Soon
+                  </span>
                   <InkButton href="/events" variant="outline">
                     All Events
                   </InkButton>
@@ -80,7 +69,7 @@ export default function HomePage() {
                   Calendar
                 </p>
                 <h2 className="mt-4 font-display text-4xl tracking-[-0.02em] text-white/95 md:text-5xl">
-                  Upcoming events
+                  Our Events
                 </h2>
               </div>
               <Link
@@ -112,7 +101,7 @@ export default function HomePage() {
                   Lineup
                 </p>
                 <h2 className="mt-4 font-display text-4xl tracking-[-0.02em] text-white/95 md:text-5xl">
-                  Artists
+                  Our Guests and Collaborators
                 </h2>
               </div>
               <Link
@@ -128,13 +117,25 @@ export default function HomePage() {
             {homeArtists.map((artist, i) => (
               <Reveal key={artist.id} delay={i * 0.06}>
                 <Link href="/artists" className="group block">
-                  <div className="placeholder-media aspect-[3/4] w-full transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.02]" />
-                  <h3 className="mt-4 font-display text-xl tracking-[-0.02em] text-white">
-                    {artist.name}
-                  </h3>
-                  <p className="mt-1 font-sans text-sm text-white/40">
-                    {artist.role}
-                  </p>
+                  <div className="relative aspect-[3/4] w-full overflow-hidden">
+                    <Image
+                      src={artist.image}
+                      alt={artist.name ?? ""}
+                      fill
+                      sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                      className="object-cover transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.02]"
+                    />
+                  </div>
+                  {artist.name ? (
+                    <h3 className="mt-4 font-display text-xl tracking-[-0.02em] text-white">
+                      {artist.name}
+                    </h3>
+                  ) : null}
+                  {artist.role ? (
+                    <p className="mt-1 font-sans text-sm text-white/40">
+                      {artist.role}
+                    </p>
+                  ) : null}
                 </Link>
               </Reveal>
             ))}
@@ -148,18 +149,17 @@ export default function HomePage() {
           <Reveal>
             <div className="glass-panel flex flex-col items-start justify-between gap-8 p-8 md:flex-row md:items-center md:p-12">
               <div className="max-w-xl">
-                <p className="font-sans text-[11px] tracking-[0.35em] text-white/40 uppercase">
-                  Private & brand
-                </p>
-                <h2 className="mt-4 font-display text-3xl tracking-[-0.02em] text-white md:text-4xl">
-                  Bookings & private events
+                <h2 className="font-display text-3xl tracking-[-0.02em] text-white md:text-4xl">
+                  Bookings and Collaborations
                 </h2>
                 <p className="mt-3 font-sans text-sm leading-relaxed text-white/50">
-                  Planning a takeover, brand activation, or private night? Tell
-                  us the date and room — we’ll shape the rest.
+                  Have a space The Office should takeover, or want to get
+                  involved in a future event. We want to hear it.
                 </p>
               </div>
-              <InkButton href="/contact">Start a booking</InkButton>
+              <InkButton href="mailto:info@theofficesoundz.com">
+                Contact Us
+              </InkButton>
             </div>
           </Reveal>
         </div>
