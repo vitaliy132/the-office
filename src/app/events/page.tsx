@@ -1,10 +1,9 @@
 import { EventCard } from "@/components/EventCard";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
-import { featuredEvent, upcomingEvents } from "@/lib/events";
+import { upcomingEvents } from "@/lib/events";
 
 export default function EventsPage() {
-  const allEvents = [featuredEvent, ...upcomingEvents];
 
   return (
     <div className="pt-28 md:pt-36">
@@ -18,7 +17,7 @@ export default function EventsPage() {
         </Reveal>
 
         <div className="mt-16 grid gap-4 md:mt-24 md:grid-cols-2 lg:grid-cols-3">
-          {allEvents.map((event, i) => (
+          {upcomingEvents.map((event, i) => (
             <Reveal key={event.id} delay={i * 0.05}>
               <EventCard event={event} />
             </Reveal>

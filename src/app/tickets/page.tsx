@@ -1,7 +1,8 @@
+import Image from "next/image";
 import { InkButton } from "@/components/InkButton";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
-import { featuredEvent } from "@/lib/events";
+import { upcomingEvents } from "@/lib/events";
 
 const tiers = [
   { name: "General Admission", price: "—", note: "Entry · add price & doors" },
@@ -10,6 +11,8 @@ const tiers = [
 ];
 
 export default function TicketsPage() {
+  const ticketEvent =
+    upcomingEvents.find((event) => event.image) ?? upcomingEvents[0];
   return (
     <div className="pt-28 md:pt-36">
       <section className="mx-auto max-w-[1400px] px-5 pb-20 md:px-8 md:pb-28">
@@ -24,15 +27,25 @@ export default function TicketsPage() {
         <div className="mt-16 grid gap-8 lg:grid-cols-12 md:mt-24">
           <Reveal className="lg:col-span-7">
             <div className="glass-panel overflow-hidden">
-              <div className="placeholder-media aspect-[16/9] w-full" />
+              {ticketEvent.image ? (
+                <div className="relative aspect-[16/9] w-full">
+                  <Image
+                    src={ticketEvent.image}
+                    alt=""
+                    fill
+                    sizes="(min-width: 1024px) 58vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+              ) : null}
               <div className="p-6 md:p-10">
                 <div className="flex items-center gap-4">
                   <div className="flex min-w-16 flex-col items-center border border-white/15 bg-white/[0.04] px-3 py-3">
                     <span className="font-sans text-[10px] tracking-[0.2em] text-white/45 uppercase">
-                      {featuredEvent.month}
+                      {ticketEvent.month}
                     </span>
                     <span className="mt-1 font-display text-3xl leading-none text-white">
-                      {featuredEvent.day}
+                      {ticketEvent.day}
                     </span>
                   </div>
                   <div>
@@ -40,18 +53,18 @@ export default function TicketsPage() {
                       On sale now
                     </p>
                     <p className="mt-1 font-sans text-sm text-white/50">
-                      {featuredEvent.venue} · {featuredEvent.city}
+                      {ticketEvent.venue} · {ticketEvent.city}
                     </p>
                   </div>
                 </div>
                 <h2 className="mt-8 font-display text-3xl tracking-[-0.02em] text-white md:text-5xl">
-                  {featuredEvent.title}
+                  {ticketEvent.title}
                 </h2>
                 <p className="mt-3 font-sans text-sm text-white/45">
-                  {featuredEvent.date}
+                  {ticketEvent.date}
                 </p>
                 <p className="mt-4 max-w-md font-sans text-sm leading-relaxed text-white/50">
-                  {featuredEvent.blurb}
+                  {ticketEvent.blurb}
                 </p>
               </div>
             </div>

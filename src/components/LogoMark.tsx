@@ -6,14 +6,16 @@ type LogoMarkProps = {
   priority?: boolean;
 };
 
+const intrinsic = { width: 635, height: 393 };
+
 const sizes = {
-  sm: { className: "h-9 w-auto", width: 72, height: 36 },
-  md: { className: "h-12 w-auto", width: 112, height: 56 },
-  lg: { className: "h-20 w-auto sm:h-24", width: 200, height: 100 },
+  sm: { className: "h-9", style: { width: "auto" }, ...intrinsic },
+  md: { className: "h-12", style: { width: "auto" }, ...intrinsic },
+  lg: { className: "h-20 sm:h-24", style: { width: "auto" }, ...intrinsic },
   hero: {
-    className: "h-auto w-[min(78vw,520px)]",
-    width: 720,
-    height: 360,
+    className: "w-[min(78vw,520px)]",
+    style: { height: "auto" },
+    ...intrinsic,
   },
 };
 
@@ -31,6 +33,7 @@ export function LogoMark({
       width={dims.width}
       height={dims.height}
       priority={priority}
+      style={dims.style}
       className={`object-contain ${dims.className} ${className}`}
     />
   );

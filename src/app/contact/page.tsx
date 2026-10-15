@@ -1,16 +1,26 @@
+"use client";
+
+import type { FormEvent } from "react";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
+
+function submitToInbox(event: FormEvent<HTMLFormElement>) {
+  event.preventDefault();
+  const data = new FormData(event.currentTarget);
+  const name = String(data.get("name") ?? "").trim();
+  const email = String(data.get("email") ?? "").trim();
+  const message = String(data.get("message") ?? "").trim();
+  const body = [`Name: ${name}`, `Email: ${email}`, "", message].join("\n");
+  const subject = name ? `Booking from ${name}` : "Booking enquiry";
+  window.location.href = `mailto:info@theofficesoundz.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
 
 export default function ContactPage() {
   return (
     <div className="pt-28 md:pt-36">
       <section className="mx-auto max-w-[1400px] px-5 pb-20 md:px-8 md:pb-28">
         <Reveal>
-          <SectionHeading
-            eyebrow="Contact"
-            title="Start a conversation"
-            description="Wire this form to your inbox later. Fields are ready to customize."
-          />
+          <SectionHeading eyebrow="Contact" title="Contact Us" />
         </Reveal>
 
         <div className="mt-16 grid gap-8 lg:grid-cols-12 md:mt-24">
@@ -32,7 +42,7 @@ export default function ContactPage() {
                   Location
                 </p>
                 <p className="mt-2 font-display text-2xl text-white">
-                  Your City
+                  Leeds
                 </p>
               </div>
               <div>
@@ -48,7 +58,15 @@ export default function ContactPage() {
                   >
                     Instagram
                   </a>
-                  {" · X · YouTube"}
+                  {" · SoundCloud · YouTube · "}
+                  <a
+                    href="https://chat.whatsapp.com/J10JggUuroq3DJrfS6hxgT?mode=gi_t"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition-colors hover:text-white"
+                  >
+                    WhatsApp
+                  </a>
                 </p>
               </div>
             </div>
@@ -57,8 +75,7 @@ export default function ContactPage() {
           <Reveal delay={0.1} className="lg:col-span-7">
             <form
               className="glass-panel space-y-6 p-6 md:p-8"
-              action="#"
-              method="post"
+              onSubmit={submitToInbox}
             >
               <label className="block">
                 <span className="font-sans text-[11px] tracking-[0.28em] text-white/40 uppercase">
@@ -89,7 +106,7 @@ export default function ContactPage() {
                 <textarea
                   name="message"
                   rows={5}
-                  placeholder="Tell us about your project or booking"
+                  placeholder="Tell us about your booking or ideas"
                   className="mt-3 w-full resize-none border-b border-white/20 bg-transparent py-3 font-sans text-sm text-white outline-none transition-colors placeholder:text-white/25 focus:border-white/70"
                 />
               </label>
