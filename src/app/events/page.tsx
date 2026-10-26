@@ -10,7 +10,6 @@ export default function EventsPage() {
       <section className="mx-auto max-w-[1400px] px-5 pb-20 md:px-8 md:pb-28">
         <Reveal>
           <SectionHeading
-            eyebrow="Our Events"
             title="Nights on the calendar"
           />
         </Reveal>

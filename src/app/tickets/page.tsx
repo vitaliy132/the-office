@@ -18,9 +18,7 @@ export default function TicketsPage() {
       <section className="mx-auto max-w-[1400px] px-5 pb-20 md:px-8 md:pb-28">
         <Reveal>
           <SectionHeading
-            eyebrow="Tickets"
-            title="Secure your place"
-            description="Pick a night, choose a tier — connect real checkout when you're ready."
+            title="Secure your tickets"
           />
         </Reveal>
 
