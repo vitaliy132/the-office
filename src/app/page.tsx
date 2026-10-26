@@ -19,9 +19,9 @@ export default function HomePage() {
       {/* Upcoming */}
       <section className="relative border-t border-white/10">
         <div className="mx-auto max-w-[1400px] px-5 py-20 md:px-8 md:py-28">
-          <p className="font-sans text-[11px] tracking-[0.35em] text-white/40 uppercase">
-            All Events
-          </p>
+          <h2 className="font-display text-3xl tracking-[-0.02em] text-white/95 md:text-4xl">
+            <span className="title-highlight">All Events</span>
+          </h2>
 
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {nextEvents.map((event, i) => (
