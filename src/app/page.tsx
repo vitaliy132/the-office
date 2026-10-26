@@ -16,70 +16,12 @@ export default function HomePage() {
     <>
       <HomeHero />
 
-      {/* Featured / Next up */}
-      <section className="relative">
-        <div className="mx-auto max-w-[1400px] px-5 py-20 md:px-8 md:py-28">
-          <Reveal>
-            <p className="font-sans text-[11px] tracking-[0.35em] text-white/40 uppercase">
-              Next up
-            </p>
-            <h2 className="mt-4 font-display text-4xl tracking-[-0.02em] text-white/95 md:text-5xl">
-              <span className="title-highlight">Featured night</span>
-            </h2>
-          </Reveal>
-
-          <Reveal delay={0.08} className="mt-12">
-            <div className="glass-panel grid gap-0 overflow-hidden lg:grid-cols-12">
-              <div className="flex aspect-[16/10] items-center justify-center lg:col-span-7 lg:aspect-auto lg:min-h-[420px]">
-                <p className="font-display text-6xl leading-none tracking-[-0.03em] text-white/80 md:text-7xl">
-                  <span className="title-highlight">TBA</span>
-                </p>
-              </div>
-              <div className="flex flex-col justify-between p-6 md:p-10 lg:col-span-5">
-                <div>
-                  <h3 className="font-display text-4xl tracking-[-0.02em] text-white md:text-5xl">
-                    <span className="title-highlight">TBA</span>
-                  </h3>
-                  <p className="mt-4 max-w-sm font-sans text-sm leading-relaxed text-white/50">
-                    We&apos;re currently building something very exciting. Keep an
-                    eye out for this one...
-                  </p>
-                </div>
-                <div className="mt-10 flex flex-wrap items-center justify-between gap-4">
-                  <span className="font-sans text-[11px] tracking-[0.18em] text-white/35 uppercase">
-                    Soon
-                  </span>
-                  <InkButton href="/events" variant="outline">
-                    All Events
-                  </InkButton>
-                </div>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
       {/* Upcoming */}
       <section className="relative border-t border-white/10">
         <div className="mx-auto max-w-[1400px] px-5 py-20 md:px-8 md:py-28">
-          <Reveal>
-            <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-              <div>
-                <p className="font-sans text-[11px] tracking-[0.35em] text-white/40 uppercase">
-                  Calendar
-                </p>
-                <h2 className="mt-4 font-display text-4xl tracking-[-0.02em] text-white/95 md:text-5xl">
-                  <span className="title-highlight">Our Events</span>
-                </h2>
-              </div>
-              <Link
-                href="/events"
-                className="font-sans text-[11px] tracking-[0.22em] text-white/50 uppercase transition-colors duration-500 hover:text-white"
-              >
-                View full calendar →
-              </Link>
-            </div>
-          </Reveal>
+          <p className="font-sans text-[11px] tracking-[0.35em] text-white/40 uppercase">
+            All Events
+          </p>
 
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {nextEvents.map((event, i) => (
@@ -88,6 +30,15 @@ export default function HomePage() {
               </Reveal>
             ))}
           </div>
+
+          <Reveal className="mt-8 flex justify-end">
+            <Link
+              href="/events"
+              className="font-sans text-[11px] tracking-[0.22em] text-white/50 uppercase transition-colors duration-500 hover:text-white"
+            >
+              View full calendar →
+            </Link>
+          </Reveal>
         </div>
       </section>
 

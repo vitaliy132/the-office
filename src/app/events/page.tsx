@@ -12,7 +12,6 @@ export default function EventsPage() {
           <SectionHeading
             eyebrow="Our Events"
             title="Nights on the calendar"
-            description="Every date we put on — swap titles, venues, and artwork when you're ready."
           />
         </Reveal>
 
