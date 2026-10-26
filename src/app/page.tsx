@@ -48,10 +48,7 @@ export default function HomePage() {
           <Reveal>
             <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
               <div>
-                <p className="font-sans text-[11px] tracking-[0.35em] text-white/40 uppercase">
-                  Lineup
-                </p>
-                <h2 className="mt-4 font-display text-4xl tracking-[-0.02em] text-white/95 md:text-5xl">
+                <h2 className="mt-4 font-display text-3xl tracking-[-0.02em] text-white/95 md:text-4xl">
                   <span className="title-highlight">
                     Our Guests and Collaborators
                   </span>
