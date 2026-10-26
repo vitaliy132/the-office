@@ -1,20 +1,35 @@
 import type { Metadata } from "next";
-import { Bodoni_Moda, DM_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import { BrandBackground } from "@/components/BrandBackground";
 import { Footer } from "@/components/Footer";
 import { Nav } from "@/components/Nav";
 import { Providers } from "@/components/Providers";
 import "./globals.css";
 
-const bodoni = Bodoni_Moda({
-  variable: "--font-bodoni",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
-  subsets: ["latin"],
+const ttTravelsNext = localFont({
+  src: [
+    {
+      path: "../fonts/TTTravelsNext-Regular.woff",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../fonts/TTTravelsNext-Italic.woff",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "../fonts/TTTravelsNext-Medium.woff",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../fonts/TTTravelsNext-Bold.woff",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-tt-travels-next",
   display: "swap",
 });
 
@@ -31,7 +46,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${bodoni.variable} ${dmSans.variable} h-full antialiased`}
+      className={`${ttTravelsNext.variable} ${ttTravelsNext.className} h-full antialiased`}
     >
       <body className="relative flex min-h-full flex-col text-white">
         <BrandBackground />

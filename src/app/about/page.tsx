@@ -9,8 +9,8 @@ export default function AboutPage() {
         <Reveal>
           <SectionHeading
             eyebrow="About Us"
-            title="The house behind the night"
-            description="Replace this with your story — who you are, what you stand for, and why The Office exists."
+            title="About The Office"
+            description="Leeds-born DJ collective and events company"
           />
         </Reveal>
 
