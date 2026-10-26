@@ -7,7 +7,7 @@ export function BrandBackground() {
       aria-hidden
     >
       <Image
-        src="/LB-FreedomMillsTheOffice-8809-2.jpg"
+        src="/brand/LB-FreedomMillsTheOffice-8809-2.jpg"
         alt=""
         fill
         priority
