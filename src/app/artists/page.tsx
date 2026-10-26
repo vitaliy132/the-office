@@ -21,26 +21,26 @@ const additionalArtists: ArtistCard[] = [
     role: "DJ",
     image: "/artists/two-big-hands.jpeg",
   },
-  { name: "Ebz", role: "DJ" },
+  { name: "Ebz", role: "DJ", image: "/artists/ebz.png" },
   {
     name: "AD*N",
     role: "DJ/Producer",
-    image: "/artists/artist-logo.png",
+    image: "/artists/adn.jpg",
   },
   {
     name: "Just Joe",
     role: "DJ/Producer",
-    image: "/artists/artist-logo.png",
+    image: "/artists/just-joe.jpeg",
   },
   {
     name: "Amelia Leigh",
     role: "DJ/Producer",
-    image: "/artists/artist-logo.png",
+    image: "/artists/amelia-leigh.jpg",
   },
   {
     name: "MillyLynne",
     role: "DJ",
-    image: "/artists/artist-logo.png",
+    image: "/artists/millylynne.jpg",
   },
   {
     name: "Coco's Hifi",
