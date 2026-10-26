@@ -45,7 +45,7 @@ const additionalArtists: ArtistCard[] = [
   {
     name: "Coco's Hifi",
     role: "Soundsystem",
-    image: "/artists/artist-logo.png",
+    image: "/artists/cocos-hifi.jpeg",
   },
   {
     name: "TMN",
