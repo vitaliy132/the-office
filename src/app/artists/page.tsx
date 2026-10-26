@@ -98,7 +98,7 @@ export default function ArtistsPage() {
                 </div>
                 {artist.name ? (
                   <h2 className="mt-5 font-display text-2xl tracking-[-0.02em] text-white">
-                    {artist.name}
+                    <span className="title-highlight">{artist.name}</span>
                   </h2>
                 ) : null}
                 {artist.role ? (

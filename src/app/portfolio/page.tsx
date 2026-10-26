@@ -31,8 +31,7 @@ export default function PortfolioPage() {
         <Reveal>
           <SectionHeading
             eyebrow="Portfolio"
-            title="Selected work"
-            description="Large media frames for stills, films, and campaign moments."
+            title="Our Projects"
           />
         </Reveal>
 
@@ -51,7 +50,9 @@ export default function PortfolioPage() {
                 </div>
                 <div className="mt-4 flex items-baseline justify-between gap-4">
                   <h2 className="font-display text-xl tracking-[-0.02em] text-white">
-                    {project.title}
+                    <span className="title-highlight">
+                      {project.title}
+                    </span>
                   </h2>
                   <p className="font-sans text-[11px] tracking-[0.18em] text-white/35 uppercase">
                     {project.meta}

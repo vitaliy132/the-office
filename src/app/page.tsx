@@ -24,7 +24,7 @@ export default function HomePage() {
               Next up
             </p>
             <h2 className="mt-4 font-display text-4xl tracking-[-0.02em] text-white/95 md:text-5xl">
-              Featured night
+              <span className="title-highlight">Featured night</span>
             </h2>
           </Reveal>
 
@@ -32,13 +32,13 @@ export default function HomePage() {
             <div className="glass-panel grid gap-0 overflow-hidden lg:grid-cols-12">
               <div className="flex aspect-[16/10] items-center justify-center lg:col-span-7 lg:aspect-auto lg:min-h-[420px]">
                 <p className="font-display text-6xl leading-none tracking-[-0.03em] text-white/80 md:text-7xl">
-                  TBA
+                  <span className="title-highlight">TBA</span>
                 </p>
               </div>
               <div className="flex flex-col justify-between p-6 md:p-10 lg:col-span-5">
                 <div>
                   <h3 className="font-display text-4xl tracking-[-0.02em] text-white md:text-5xl">
-                    TBA
+                    <span className="title-highlight">TBA</span>
                   </h3>
                   <p className="mt-4 max-w-sm font-sans text-sm leading-relaxed text-white/50">
                     We&apos;re currently building something very exciting. Keep an
@@ -69,7 +69,7 @@ export default function HomePage() {
                   Calendar
                 </p>
                 <h2 className="mt-4 font-display text-4xl tracking-[-0.02em] text-white/95 md:text-5xl">
-                  Our Events
+                  <span className="title-highlight">Our Events</span>
                 </h2>
               </div>
               <Link
@@ -101,7 +101,9 @@ export default function HomePage() {
                   Lineup
                 </p>
                 <h2 className="mt-4 font-display text-4xl tracking-[-0.02em] text-white/95 md:text-5xl">
-                  Our Guests and Collaborators
+                  <span className="title-highlight">
+                    Our Guests and Collaborators
+                  </span>
                 </h2>
               </div>
               <Link
@@ -128,7 +130,7 @@ export default function HomePage() {
                   </div>
                   {artist.name ? (
                     <h3 className="mt-4 font-display text-xl tracking-[-0.02em] text-white">
-                      {artist.name}
+                      <span className="title-highlight">{artist.name}</span>
                     </h3>
                   ) : null}
                   {artist.role ? (
@@ -150,7 +152,9 @@ export default function HomePage() {
             <div className="glass-panel flex flex-col items-start justify-between gap-8 p-8 md:flex-row md:items-center md:p-12">
               <div className="max-w-xl">
                 <h2 className="font-display text-3xl tracking-[-0.02em] text-white md:text-4xl">
-                  Bookings and Collaborations
+                  <span className="title-highlight">
+                    Bookings and Collaborations
+                  </span>
                 </h2>
                 <p className="mt-3 font-sans text-sm leading-relaxed text-white/50">
                   Have a space The Office should takeover, or want to get

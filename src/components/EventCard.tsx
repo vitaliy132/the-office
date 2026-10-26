@@ -45,7 +45,7 @@ export function EventCard({ event, className = "" }: EventCardProps) {
           )}
           <div className="min-w-0 flex-1">
             <h3 className="font-display text-2xl tracking-[-0.02em] text-white md:text-[1.7rem]">
-              {event.title}
+              <span className="title-highlight">{event.title}</span>
             </h3>
             <p className="mt-1.5 font-sans text-sm text-white/45">
               {event.announce ? event.blurb : `${event.venue} · ${event.city}`}

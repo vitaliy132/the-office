@@ -58,7 +58,7 @@ export default function TicketsPage() {
                   </div>
                 </div>
                 <h2 className="mt-8 font-display text-3xl tracking-[-0.02em] text-white md:text-5xl">
-                  {ticketEvent.title}
+                  <span className="title-highlight">{ticketEvent.title}</span>
                 </h2>
                 <p className="mt-3 font-sans text-sm text-white/45">
                   {ticketEvent.date}
@@ -81,7 +81,7 @@ export default function TicketsPage() {
                 <div className="glass-panel flex items-center justify-between px-6 py-7 transition-all duration-500 hover:bg-white/[0.08]">
                   <div>
                     <h3 className="font-display text-2xl text-white">
-                      {tier.name}
+                      <span className="title-highlight">{tier.name}</span>
                     </h3>
                     <p className="mt-1 font-sans text-sm text-white/40">
                       {tier.note}
