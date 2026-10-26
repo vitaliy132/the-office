@@ -30,7 +30,6 @@ export default function PortfolioPage() {
       <section className="mx-auto max-w-[1400px] px-5 pb-20 md:px-8 md:pb-28">
         <Reveal>
           <SectionHeading
-            eyebrow="Portfolio"
             title="Our Projects"
           />
         </Reveal>
