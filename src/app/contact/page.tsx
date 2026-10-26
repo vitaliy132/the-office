@@ -20,7 +20,7 @@ export default function ContactPage() {
     <div className="pt-28 md:pt-36">
       <section className="mx-auto max-w-[1400px] px-5 pb-20 md:px-8 md:pb-28">
         <Reveal>
-          <SectionHeading eyebrow="Contact" title="Contact Us" />
+          <SectionHeading title="Contact Us" />
         </Reveal>
 
         <div className="mt-16 grid gap-8 lg:grid-cols-12 md:mt-24">
