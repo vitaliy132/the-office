@@ -6,30 +6,40 @@ import { Nav } from "@/components/Nav";
 import { Providers } from "@/components/Providers";
 import "./globals.css";
 
-const ttTravelsNext = localFont({
+const neueMontreal = localFont({
   src: [
     {
-      path: "../fonts/TTTravelsNext-Regular.woff",
-      weight: "400",
+      path: "../../ppneuemontreal-thin.otf",
+      weight: "100",
       style: "normal",
     },
     {
-      path: "../fonts/TTTravelsNext-Italic.woff",
+      path: "../../ppneuemontreal-book.otf",
+      weight: "375",
+      style: "normal",
+    },
+    {
+      path: "../../ppneuemontreal-italic.otf",
       weight: "400",
       style: "italic",
     },
     {
-      path: "../fonts/TTTravelsNext-Medium.woff",
+      path: "../../ppneuemontreal-medium.otf",
       weight: "500",
       style: "normal",
     },
     {
-      path: "../fonts/TTTravelsNext-Bold.woff",
+      path: "../../ppneuemontreal-semibolditalic.otf",
+      weight: "600",
+      style: "italic",
+    },
+    {
+      path: "../../ppneuemontreal-bold.otf",
       weight: "700",
       style: "normal",
     },
   ],
-  variable: "--font-tt-travels-next",
+  variable: "--font-neue-montreal",
   display: "swap",
 });
 
@@ -46,7 +56,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${ttTravelsNext.variable} ${ttTravelsNext.className} h-full antialiased`}
+      className={`${neueMontreal.variable} ${neueMontreal.className} h-full antialiased`}
     >
       <body className="relative flex min-h-full flex-col text-white">
         <BrandBackground />

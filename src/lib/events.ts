@@ -67,13 +67,13 @@ export const homeArtists: {
   {
     id: 2,
     image: "/guests/guest-2.jpg",
-    name: "Licia",
+    name: "Anaïs",
     role: "DJ/Producer",
   },
   {
     id: 1,
     image: "/guests/guest-1.jpg",
-    name: "Anaïs",
+    name: "Licia",
     role: "DJ/Producer",
   },
   {

@@ -3,19 +3,22 @@ import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 import { homeArtists } from "@/lib/events";
 
+const artistsAlphabetically = [...homeArtists].sort((a, b) =>
+  (a.name ?? "").localeCompare(b.name ?? "", "en", { sensitivity: "base" }),
+);
+
 export default function ArtistsPage() {
   return (
     <div className="pt-28 md:pt-36">
       <section className="mx-auto max-w-[1400px] px-5 pb-20 md:px-8 md:pb-28">
         <Reveal>
           <SectionHeading
-            eyebrow="Our Artists"
-            title="Our Guests and Collaborators"
+            title="Our Artists, Guests and Collaborators"
           />
         </Reveal>
 
         <div className="mt-16 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4 md:mt-24">
-          {homeArtists.map((artist, i) => (
+          {artistsAlphabetically.map((artist, i) => (
             <Reveal key={artist.id} delay={i * 0.04}>
               <article className="group">
                 <div className="relative aspect-[3/4] w-full overflow-hidden">
