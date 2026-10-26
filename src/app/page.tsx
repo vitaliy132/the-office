@@ -17,7 +17,7 @@ export default function HomePage() {
       <HomeHero />
 
       {/* Featured / Next up */}
-      <section className="relative border-t border-white/10">
+      <section className="relative">
         <div className="mx-auto max-w-[1400px] px-5 py-20 md:px-8 md:py-28">
           <Reveal>
             <p className="font-sans text-[11px] tracking-[0.35em] text-white/40 uppercase">

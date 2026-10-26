@@ -84,7 +84,7 @@ export function HomeHero() {
               into your next rave.
             </span>
           </p>
-          <div className="hero-scroll-copy mt-6 ml-auto w-[min(34rem,100%)] opacity-0">
+          <div className="hero-scroll-copy mt-8 ml-auto w-[min(34rem,100%)] opacity-0">
             <p className="max-w-xl text-right font-sans text-sm leading-relaxed text-white/50">
               Curating forward-thinking lineups, supporting local creatives and
               artists, we remain dedicated to championing the true heartbeat of
