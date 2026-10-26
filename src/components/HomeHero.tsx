@@ -71,7 +71,6 @@ export function HomeHero() {
       ref={ref}
       className="relative flex min-h-[100svh] items-end overflow-hidden"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_25%_15%,rgba(255,255,255,0.1),transparent_50%),radial-gradient(ellipse_at_80%_70%,rgba(255,255,255,0.04),transparent_45%)]" />
       <div className="grain" />
 
       <div className="relative z-10 mx-auto w-full max-w-[1400px] px-5 pb-16 pt-32 md:px-8 md:pb-24">
