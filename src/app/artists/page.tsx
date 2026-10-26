@@ -50,17 +50,17 @@ const additionalArtists: ArtistCard[] = [
   {
     name: "TMN",
     role: "DJ/Producer",
-    image: "/artists/artist-placeholder.png",
+    image: "/artists/tmn.jpg",
   },
   {
     name: "I.Hate.This",
     role: "Photographer/Videographer",
-    image: "/artists/artist-placeholder.png",
+    image: "/artists/i-hate-this.jpeg",
   },
   {
     name: "Luke Briggs",
     role: "Photographer",
-    image: "/artists/artist-placeholder.png",
+    image: "/artists/luke-briggs.jpeg",
   },
 ].map((artist) => ({ ...artist, id: artist.name }));
 
