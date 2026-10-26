@@ -57,12 +57,6 @@ export default function HomePage() {
                   </span>
                 </h2>
               </div>
-              <Link
-                href="/artists"
-                className="font-sans text-[11px] tracking-[0.22em] text-white/50 uppercase transition-colors duration-500 hover:text-white"
-              >
-                Full roster →
-              </Link>
             </div>
           </Reveal>
 
@@ -93,6 +87,15 @@ export default function HomePage() {
               </Reveal>
             ))}
           </div>
+
+          <Reveal className="mt-8 flex justify-end">
+            <Link
+              href="/artists"
+              className="font-sans text-[11px] tracking-[0.22em] text-white/50 uppercase transition-colors duration-500 hover:text-white"
+            >
+              Full roster →
+            </Link>
+          </Reveal>
         </div>
       </section>
 
