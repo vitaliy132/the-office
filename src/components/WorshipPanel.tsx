@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import {
   CornerHeader,
   cornerListClass,
@@ -14,14 +14,12 @@ export function WorshipPanel({
   currentHref: string;
   children: ReactNode;
 }) {
-  const [menuOpen, setMenuOpen] = useState(false);
-
   return (
     <div className="relative min-h-svh bg-white text-black">
-      <CornerHeader currentHref={currentHref} onOpenChange={setMenuOpen} />
+      <CornerHeader currentHref={currentHref} />
       <div
         className={`fixed right-5 bottom-5 left-5 z-10 md:right-[75px] md:bottom-[75px] md:left-auto md:min-w-[55%] ${cornerListClass}`}
-        style={cornerListStyle(menuOpen)}
+        style={cornerListStyle()}
       >
         {children}
       </div>

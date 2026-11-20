@@ -11,30 +11,19 @@ const menuGap = 24;
 export const cornerListClass =
   "overflow-y-auto max-h-[calc(100svh-var(--corner-max))] md:max-h-[calc(100svh-var(--corner-max-md))]";
 
-export function cornerListStyle(open: boolean): CSSProperties {
-  const rows = open ? navLinks.length : 1;
-  const block = rows * menuRow + menuGap;
+export function cornerListStyle(): CSSProperties {
+  const block = menuRow + menuGap;
   return {
     "--corner-max": `${20 + 20 + block}px`,
     "--corner-max-md": `${75 + 75 + block}px`,
   } as CSSProperties;
 }
 
-export function CornerHeader({
-  currentHref,
-  onOpenChange,
-}: {
-  currentHref: string;
-  onOpenChange?: (open: boolean) => void;
-}) {
+export function CornerHeader({ currentHref }: { currentHref: string }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const currentLink = navLinks.find((link) => link.href === currentHref);
   const otherLinks = navLinks.filter((link) => link.href !== currentHref);
-
-  useEffect(() => {
-    onOpenChange?.(menuOpen);
-  }, [menuOpen, onOpenChange]);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -51,16 +40,22 @@ export function CornerHeader({
 
   return (
     <>
+      <div
+        aria-hidden={!menuOpen}
+        className={`fixed inset-0 z-[25] bg-white transition-opacity duration-300 ease-linear ${
+          menuOpen ? "opacity-[0.98]" : "pointer-events-none opacity-0"
+        }`}
+      />
       <Link
         href="/"
         aria-label="The Office"
-        className="fixed top-5 left-5 z-20 md:top-[75px] md:left-[75px]"
+        className="fixed top-5 left-5 z-30 md:top-[75px] md:left-[75px]"
       >
         <LogoMark
           size="custom"
           priority
           alt=""
-          className="h-[65px] w-auto brightness-0"
+          className="h-[80px] w-auto brightness-0"
         />
       </Link>
 

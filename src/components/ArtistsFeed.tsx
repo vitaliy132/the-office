@@ -11,15 +11,14 @@ import type { ArtistEntry } from "@/lib/artists";
 
 export function ArtistsFeed({ artists }: { artists: ArtistEntry[] }) {
   const [activeId, setActiveId] = useState<string | null>(null);
-  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <div className="relative min-h-svh bg-white text-black">
-      <CornerHeader currentHref="/artists" onOpenChange={setMenuOpen} />
+      <CornerHeader currentHref="/artists" />
 
       <ul
         className={`fixed right-5 bottom-5 z-20 text-right md:right-[75px] md:bottom-[75px] ${cornerListClass}`}
-        style={cornerListStyle(menuOpen)}
+        style={cornerListStyle()}
         onMouseLeave={() => setActiveId(null)}
       >
         {artists.map((artist) => {

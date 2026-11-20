@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
 import {
   CornerHeader,
   cornerListClass,
@@ -10,15 +9,13 @@ import {
 import type { EventItem } from "@/lib/events";
 
 export function EventsFeed({ events }: { events: EventItem[] }) {
-  const [menuOpen, setMenuOpen] = useState(false);
-
   return (
     <div className="relative min-h-svh bg-white text-black">
-      <CornerHeader currentHref="/events" onOpenChange={setMenuOpen} />
+      <CornerHeader currentHref="/events" />
 
       <div
         className={`fixed right-5 bottom-5 left-5 z-10 md:right-[75px] md:bottom-[75px] md:left-auto md:min-w-[55%] ${cornerListClass}`}
-        style={cornerListStyle(menuOpen)}
+        style={cornerListStyle()}
       >
         <table className="w-full border-separate border-spacing-[10px] text-[10px] leading-none">
           <tbody>
