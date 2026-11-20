@@ -42,7 +42,7 @@ export function CornerHeader({ currentHref }: { currentHref: string }) {
     <>
       <div
         aria-hidden={!menuOpen}
-        className={`fixed inset-0 z-[25] bg-white transition-opacity duration-300 ease-linear ${
+        className={`fixed inset-0 z-[25] bg-white transition-opacity duration-[400ms] ease-linear motion-reduce:transition-none ${
           menuOpen ? "opacity-[0.98]" : "pointer-events-none opacity-0"
         }`}
       />
@@ -76,18 +76,25 @@ export function CornerHeader({ currentHref }: { currentHref: string }) {
                 </Link>
               </li>
             ) : null}
-            {menuOpen
-              ? otherLinks.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="block opacity-20 transition-opacity duration-300 ease-linear hover:opacity-100"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))
-              : null}
+            {otherLinks.map((link) => (
+              <li
+                key={link.href}
+                inert={menuOpen ? undefined : true}
+                className={`grid transition-[grid-template-rows] duration-[400ms] ease-[cubic-bezier(0.45,0,0.55,1)] motion-reduce:transition-none ${
+                  menuOpen ? "grid-rows-[1fr]" : "pointer-events-none grid-rows-[0fr]"
+                }`}
+              >
+                <div className="min-h-0 overflow-hidden">
+                  <Link
+                    href={link.href}
+                    tabIndex={menuOpen ? 0 : -1}
+                    className="block opacity-20 transition-opacity duration-300 ease-linear hover:opacity-100"
+                  >
+                    {link.label}
+                  </Link>
+                </div>
+              </li>
+            ))}
           </ul>
           <button
             type="button"
@@ -96,9 +103,25 @@ export function CornerHeader({ currentHref }: { currentHref: string }) {
             onClick={() => setMenuOpen((open) => !open)}
             className="relative mt-[3px] h-[18px] w-[30px] shrink-0"
           >
-            <span className="absolute top-0 right-0 h-0.5 w-full bg-black" />
-            <span className="absolute top-1/2 right-0 h-0.5 w-4/5 -translate-y-1/2 bg-black" />
-            <span className="absolute right-0 bottom-0 h-0.5 w-3/5 bg-black" />
+            <span
+              className={`absolute right-0 h-0.5 bg-black transition-all duration-500 ease-in-out motion-reduce:transition-none ${
+                menuOpen
+                  ? "top-1/2 w-full -translate-y-1/2 rotate-45"
+                  : "top-0 w-full"
+              }`}
+            />
+            <span
+              className={`absolute top-1/2 right-0 h-0.5 -translate-y-1/2 bg-black transition-all duration-500 ease-in-out motion-reduce:transition-none ${
+                menuOpen ? "w-0 opacity-0" : "w-4/5 opacity-100"
+              }`}
+            />
+            <span
+              className={`absolute right-0 h-0.5 bg-black transition-all duration-500 ease-in-out motion-reduce:transition-none ${
+                menuOpen
+                  ? "top-1/2 w-full -translate-y-1/2 -rotate-45"
+                  : "top-4 w-3/5"
+              }`}
+            />
           </button>
         </div>
       </div>
