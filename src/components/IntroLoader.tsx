@@ -1,18 +1,35 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { ensureGsap, gsap } from "@/lib/gsap";
 import { LogoMark } from "@/components/LogoMark";
+import { isBareRoute } from "@/lib/nav";
 
 ensureGsap();
 
 export function IntroLoader() {
+  const pathname = usePathname();
+  const skipIntro = isBareRoute(pathname);
   const rootRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLSpanElement>(null);
   const barRef = useRef<HTMLDivElement>(null);
-  const [done, setDone] = useState(false);
+  const [done, setDone] = useState(skipIntro);
+
+  useLayoutEffect(() => {
+    if (!skipIntro) return;
+    document.documentElement.classList.add("intro-complete");
+    setDone(true);
+  }, [skipIntro]);
 
   useEffect(() => {
+    if (skipIntro) return;
+
+    if (document.documentElement.classList.contains("intro-complete")) {
+      setDone(true);
+      return;
+    }
+
     const prefersReduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
@@ -23,10 +40,10 @@ export function IntroLoader() {
       return;
     }
 
-    document.documentElement.classList.add("intro-locked");
-
     const root = rootRef.current;
     if (!root) return;
+
+    document.documentElement.classList.add("intro-locked");
 
     const counter = { value: 0 };
     const letters = root.querySelectorAll<HTMLElement>(".intro-word-letter");
@@ -153,7 +170,7 @@ export function IntroLoader() {
       tl.kill();
       document.documentElement.classList.remove("intro-locked");
     };
-  }, []);
+  }, [skipIntro]);
 
   if (done) return null;
 

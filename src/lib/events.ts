@@ -57,35 +57,3 @@ export const upcomingEvents: EventItem[] = [
     image: "/events/poster-without-qr.png",
   },
 ];
-
-export const homeArtists: {
-  id: number;
-  image: string;
-  name?: string;
-  role?: string;
-}[] = [
-  {
-    id: 2,
-    image: "/guests/guest-2.jpg",
-    name: "Anaïs",
-    role: "DJ/Producer",
-  },
-  {
-    id: 1,
-    image: "/guests/guest-1.jpg",
-    name: "Licia",
-    role: "DJ/Producer",
-  },
-  {
-    id: 3,
-    image: "/guests/guest-3.jpg",
-    name: "Mylania",
-    role: "DJ/Producer",
-  },
-  {
-    id: 4,
-    image: "/guests/guest-4.jpg",
-    name: "GreenHouse",
-    role: "DJ/Producer",
-  },
-];

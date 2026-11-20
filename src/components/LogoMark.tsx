@@ -1,9 +1,10 @@
 import Image from "next/image";
 
 type LogoMarkProps = {
-  size?: "sm" | "md" | "lg" | "hero";
+  size?: "sm" | "md" | "lg" | "hero" | "custom";
   className?: string;
   priority?: boolean;
+  alt?: string;
 };
 
 const intrinsic = { width: 635, height: 393 };
@@ -17,19 +18,21 @@ const sizes = {
     style: { height: "auto" },
     ...intrinsic,
   },
+  custom: { className: "", style: undefined, ...intrinsic },
 };
 
 export function LogoMark({
   size = "sm",
   className = "",
   priority = false,
+  alt = "The Office",
 }: LogoMarkProps) {
   const dims = sizes[size];
 
   return (
     <Image
       src="/brand/logo.png"
-      alt="The Office"
+      alt={alt}
       width={dims.width}
       height={dims.height}
       priority={priority}
