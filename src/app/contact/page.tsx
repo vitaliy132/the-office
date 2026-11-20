@@ -1,8 +1,7 @@
 "use client";
 
 import type { FormEvent } from "react";
-import { Reveal } from "@/components/Reveal";
-import { SectionHeading } from "@/components/SectionHeading";
+import { WorshipPanel } from "@/components/WorshipPanel";
 
 function submitToInbox(event: FormEvent<HTMLFormElement>) {
   event.preventDefault();
@@ -15,112 +14,79 @@ function submitToInbox(event: FormEvent<HTMLFormElement>) {
   window.location.href = `mailto:info@theofficesoundz.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
+const fieldClass =
+  "mt-2 w-full border-b border-black bg-transparent py-2 text-[10px] text-black outline-none placeholder:text-black/40";
+
 export default function ContactPage() {
   return (
-    <div className="pt-28 md:pt-36">
-      <section className="mx-auto max-w-[1400px] px-5 pb-20 md:px-8 md:pb-28">
-        <Reveal>
-          <SectionHeading title="Contact Us" />
-        </Reveal>
+    <WorshipPanel currentHref="/contact">
+      <div className="px-[10px] pb-2 text-[10px] leading-[1.6]">
+        <p>
+          <a
+            href="mailto:info@theofficesoundz.com"
+            className="text-[14px] leading-none uppercase"
+          >
+            info@theofficesoundz.com
+          </a>
+        </p>
+        <p className="mt-4 text-[14px] leading-none uppercase">Leeds</p>
+        <p className="mt-4">
+          <a
+            href="https://www.instagram.com/theofficesoundz/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="uppercase hover:opacity-60"
+          >
+            Instagram
+          </a>
+        </p>
+        <p className="mt-2">
+          <a
+            href="https://chat.whatsapp.com/J10JggUuroq3DJrfS6hxgT?mode=gi_t"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="uppercase hover:opacity-60"
+          >
+            WhatsApp
+          </a>
+        </p>
 
-        <div className="mt-16 grid gap-8 lg:grid-cols-12 md:mt-24">
-          <Reveal className="lg:col-span-5">
-            <div className="glass-panel space-y-8 p-6 md:p-8">
-              <div>
-                <p className="font-sans text-[11px] tracking-[0.28em] text-white/40 uppercase">
-                  Email
-                </p>
-                <a
-                  href="mailto:info@theofficesoundz.com"
-                  className="mt-2 block font-display text-2xl text-white transition-colors hover:text-white/80"
-                >
-                  info@theofficesoundz.com
-                </a>
-              </div>
-              <div>
-                <p className="font-sans text-[11px] tracking-[0.28em] text-white/40 uppercase">
-                  Location
-                </p>
-                <p className="mt-2 font-display text-2xl text-white">
-                  Leeds
-                </p>
-              </div>
-              <div>
-                <p className="font-sans text-[11px] tracking-[0.28em] text-white/40 uppercase">
-                  Social
-                </p>
-                <p className="mt-2 font-sans text-sm text-white/50">
-                  <a
-                    href="https://www.instagram.com/theofficesoundz/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="transition-colors hover:text-white"
-                  >
-                    Instagram
-                  </a>
-                  {" · SoundCloud · YouTube · "}
-                  <a
-                    href="https://chat.whatsapp.com/J10JggUuroq3DJrfS6hxgT?mode=gi_t"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="transition-colors hover:text-white"
-                  >
-                    WhatsApp
-                  </a>
-                </p>
-              </div>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.1} className="lg:col-span-7">
-            <form
-              className="glass-panel space-y-6 p-6 md:p-8"
-              onSubmit={submitToInbox}
-            >
-              <label className="block">
-                <span className="font-sans text-[11px] tracking-[0.28em] text-white/40 uppercase">
-                  Name
-                </span>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your name"
-                  className="mt-3 w-full border-b border-white/20 bg-transparent py-3 font-sans text-sm text-white outline-none transition-colors placeholder:text-white/25 focus:border-white/70"
-                />
-              </label>
-              <label className="block">
-                <span className="font-sans text-[11px] tracking-[0.28em] text-white/40 uppercase">
-                  Email
-                </span>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="you@example.com"
-                  className="mt-3 w-full border-b border-white/20 bg-transparent py-3 font-sans text-sm text-white outline-none transition-colors placeholder:text-white/25 focus:border-white/70"
-                />
-              </label>
-              <label className="block">
-                <span className="font-sans text-[11px] tracking-[0.28em] text-white/40 uppercase">
-                  Message
-                </span>
-                <textarea
-                  name="message"
-                  rows={5}
-                  placeholder="Tell us about your booking or ideas"
-                  className="mt-3 w-full resize-none border-b border-white/20 bg-transparent py-3 font-sans text-sm text-white outline-none transition-colors placeholder:text-white/25 focus:border-white/70"
-                />
-              </label>
-              <button
-                type="submit"
-                className="group relative mt-4 inline-flex overflow-hidden border border-white/40 bg-white/85 px-8 py-3.5 font-sans text-[11px] tracking-[0.28em] text-black uppercase backdrop-blur-md"
-              >
-                <span className="absolute inset-0 origin-left scale-x-0 bg-white transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100" />
-                <span className="relative z-10">Send message</span>
-              </button>
-            </form>
-          </Reveal>
-        </div>
-      </section>
-    </div>
+        <form className="mt-8 space-y-5" onSubmit={submitToInbox}>
+          <label className="block uppercase">
+            Name
+            <input
+              type="text"
+              name="name"
+              placeholder="Your name"
+              className={fieldClass}
+            />
+          </label>
+          <label className="block uppercase">
+            Email
+            <input
+              type="email"
+              name="email"
+              placeholder="you@example.com"
+              className={fieldClass}
+            />
+          </label>
+          <label className="block uppercase">
+            Message
+            <textarea
+              name="message"
+              rows={5}
+              placeholder="Tell us about your booking or ideas"
+              className={`${fieldClass} resize-none`}
+            />
+          </label>
+          <button
+            type="submit"
+            className="border border-black px-[2em] py-[10px] leading-[2.5em] uppercase transition-colors duration-300 ease-linear hover:bg-black hover:text-white"
+          >
+            Send message
+          </button>
+        </form>
+      </div>
+    </WorshipPanel>
   );
 }

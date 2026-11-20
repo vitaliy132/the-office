@@ -1,6 +1,5 @@
 import Image from "next/image";
-import { Reveal } from "@/components/Reveal";
-import { SectionHeading } from "@/components/SectionHeading";
+import { WorshipPanel } from "@/components/WorshipPanel";
 
 const portfolioItems = [
   { id: 1, title: "File #001", meta: "Freedom Mills, Leeds - 2025", image: "/portfolio/LB-FreedomMillsTheOffice-8400.jpg", tall: true },
@@ -26,42 +25,28 @@ const portfolioItems = [
 
 export default function PortfolioPage() {
   return (
-    <div className="pt-28 md:pt-36">
-      <section className="mx-auto max-w-[1400px] px-5 pb-20 md:px-8 md:pb-28">
-        <Reveal>
-          <SectionHeading
-            title="Our Projects"
-          />
-        </Reveal>
-
-        <div className="mt-16 columns-1 gap-6 sm:columns-2 lg:columns-3 md:mt-24">
-          {portfolioItems.map((project, i) => (
-            <Reveal key={project.id} delay={i * 0.05} className="mb-6 break-inside-avoid">
-              <article className="group">
-                <div className={`relative overflow-hidden bg-white/5 ${project.tall ? "aspect-[3/4]" : "aspect-[4/3]"}`}>
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-[1.015]"
-                  />
-                </div>
-                <div className="mt-4 flex items-baseline justify-between gap-4">
-                  <h2 className="font-display text-xl tracking-[-0.02em] text-white">
-                    <span className="title-highlight">
-                      {project.title}
-                    </span>
-                  </h2>
-                  <p className="font-sans text-[11px] tracking-[0.18em] text-white/35 uppercase">
-                    {project.meta}
-                  </p>
-                </div>
-              </article>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-    </div>
+    <WorshipPanel currentHref="/portfolio">
+      <ul className="flex flex-col gap-[10px] px-[10px] pb-2">
+        {portfolioItems.map((project) => (
+          <li key={project.id}>
+            <div
+              className={`relative w-full ${project.tall ? "aspect-[3/4]" : "aspect-[4/3]"}`}
+            >
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                sizes="(min-width: 768px) 55vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <p className="mt-[10px] text-[14px] leading-none uppercase">
+              {project.title}
+            </p>
+            <p className="mt-1 text-[10px] leading-none">{project.meta}</p>
+          </li>
+        ))}
+      </ul>
+    </WorshipPanel>
   );
 }
